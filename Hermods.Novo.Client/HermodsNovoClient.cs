@@ -105,7 +105,7 @@ namespace Hermods.Novo
             response.EnsureSuccessStatusCode();
 
             if (response.RequestMessage.RequestUri.ToString() == "https://novo.hermods.se/login/index.php")
-                throw new HermodsNovoUnauthenticatedException("Redirected to https://novo.hermods.se/login/index.php");
+                throw new HermodsNovoUnauthorizedException("Redirected to https://novo.hermods.se/login/index.php");
 
             return true;
         }
