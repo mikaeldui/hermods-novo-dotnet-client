@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Hermods.Novo</RootNamespace>
+    <Authors>mikaeldui</Authors>
+    <Company>mikaeldui</Company>
+    <Description>An unofficial .NET client for Hermods Novo.</Description>
+    <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/mikaeldui/HermodsNovoClient</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mikaeldui/HermodsNovoClient</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Hermods, Hermods Novo, Education, Literature, API Client</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.30" />
+    <PackageReference Include="Liber.Onlinebok.Client" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+</Project>
