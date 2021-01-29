@@ -1,2 +1,2 @@
 # HermodsNovoClient
-A .NET Client for Hermods Novo.
+An unofficial .NET Client for Hermods Novo.
