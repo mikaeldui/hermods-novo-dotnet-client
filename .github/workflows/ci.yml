@@ -1,4 +1,4 @@
-name: .NET
+name: Continuous Integration
 
 on:
   push:
@@ -23,3 +23,6 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      env: 
+        HERMODS_NOVO_USERNAME: ${{ secrets.HERMODS_NOVO_USERNAME }}
+        HERMODS_NOVO_PASSWORD: ${{ secrets.HERMODS_NOVO_PASSWORD }}
