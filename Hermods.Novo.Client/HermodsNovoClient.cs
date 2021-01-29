@@ -32,7 +32,7 @@ namespace Hermods.Novo
         /// <summary>
         /// Throws <see cref="HermodsNovoInvalidCredentialsException"/> if the credentials are invalid.
         /// </summary>
-        public async Task AuthenticateAsync(string username, string password)
+        public async Task<bool> TryAuthenticateAsync(string username, string password)
         {
             var message = $"username={username}&password={password}";
             var content = new StringContent(message);
@@ -40,8 +40,10 @@ namespace Hermods.Novo
 
             var response = await _httpClient.PostAsync("https://novo.hermods.se/login/index.php", content);
 
-            if (!response.IsSuccessStatusCode || "https://novo.hermods.se/theme/frigg/layout/views/student/" != response.RequestMessage.RequestUri.ToString())
-                throw new HermodsNovoInvalidCredentialsException("The credentials are not valid."); // TODO: returning bool is probably better.
+            if (response.IsSuccessStatusCode && response.RequestMessage.RequestUri.ToString() == "https://novo.hermods.se/theme/frigg/layout/views/student/")
+                return true;
+
+            return false;
         }
 
         public async Task<HermodsNovoEbook[]> GetEbooksAsync()
