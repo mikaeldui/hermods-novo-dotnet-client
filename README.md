@@ -8,6 +8,6 @@ You can install it using the following package manager command:
 
     Install-Package MikaelDui.Hermods.Novo.Client
 
-It was created for use by [Mina läromedel](https://github.com/mikaeldui/MinaLaromedel).
+It was created for use by [mikaeldui/MinaLaromedel](https://github.com/mikaeldui/MinaLaromedel) through [mikaeldui/HermodsNovoClient](https://github.com/mikaeldui/HermodsNovoClient).
 
 Currently the support is limited to e-books published by Liber with [Liber Onlinebok](https://github.com/mikaeldui/LiberOnlinebokClient).
