@@ -9,3 +9,5 @@ You can isntall it using the following package manager command:
     Install-Package MikaelDui.Hermods.Novo.Client
 
 It was created for use by [Mina läromedel](https://github.com/mikaeldui/MinaLaromedel).
+
+Currently the support is limited to e-books published by Liber with [Liber Onlinebok](https://github.com/mikaeldui/LiberOnlinebokClient).
