@@ -10,4 +10,4 @@ You can install it using the following package manager command:
 
 It was created for use by [mikaeldui/MinaLaromedel](https://github.com/mikaeldui/MinaLaromedel) through [mikaeldui/HermodsNovoClient](https://github.com/mikaeldui/HermodsNovoClient).
 
-Currently the support is limited to e-books published by Liber using [mikaeldui/LiberOnlinebokClient](https://github.com/mikaeldui/LiberOnlinebokClient).
+Currently the support is limited to e-books published by Liber, using [mikaeldui/LiberOnlinebokClient](https://github.com/mikaeldui/LiberOnlinebokClient).
