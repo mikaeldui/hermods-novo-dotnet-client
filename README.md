@@ -4,7 +4,7 @@
 
 An unofficial .NET client for Hermods Novo.
 
-You can isntall it using the following package manager command:
+You can install it using the following package manager command:
 
     Install-Package MikaelDui.Hermods.Novo.Client
 
