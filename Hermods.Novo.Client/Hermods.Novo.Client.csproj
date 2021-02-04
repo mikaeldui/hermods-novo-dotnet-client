@@ -13,6 +13,7 @@
     <PackageTags>Hermods, Hermods Novo, Education, Literature, API Client</PackageTags>
     <PackageId>MikaelDui.Hermods.Novo.Client</PackageId>
     <Version>1.0.1</Version>
+    <PackageReleaseNotes>Updated Liber.Onlinebok.Client to version 1.0.1, to remove dictionary usage.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
