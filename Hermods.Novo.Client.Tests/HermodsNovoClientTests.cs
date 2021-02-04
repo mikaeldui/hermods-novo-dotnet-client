@@ -36,7 +36,7 @@ namespace Hermods.Novo.Client.Tests
 
                 Assert.IsNotNull(document, "Document is null");
 
-                Assert.IsTrue(document.Content.ContentItems.Count > 0, "No content items");
+                Assert.IsTrue(document.Content.ContentItems.Length > 0, "No content items");
 
                 var assetLocation = await liberClient.GetAssetsLocationAsync();
 
