@@ -42,7 +42,7 @@ namespace HermodsNovoConsoleApp
                     // We're logged in!
                     var ebookList = await client.GetEbooksAsync();
 
-                    Console.WriteLine($"Received {ebookList.Length} active ebooks for {username}:\n\n");
+                    Console.WriteLine($"Received {ebookList.Length} active ebooks for {username}:\n");
 
                     foreach(var ebook in ebookList)
                     {
@@ -54,7 +54,7 @@ namespace HermodsNovoConsoleApp
                 }
             }
 
-            Console.WriteLine("\nPress any key to exit the program.");
+            Console.WriteLine("Press any key to exit the program.");
             Console.ReadKey();
         }
     }
