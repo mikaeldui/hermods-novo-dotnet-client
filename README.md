@@ -50,13 +50,11 @@ namespace HermodsNovoConsoleApp
                         {
                             Console.WriteLine($"Title: {ebook.Title}\nISBN: {ebook.Isbn}\nValid: {ebook.StartDate.ToShortDateString()} to {ebook.EndDate.ToShortDateString()}\n\n");
                         }
-
                     }
                     catch(Exception e)
                     {
                         Console.WriteLine("An error occured while the books were being retrieved: " + e.Message);
                     }
-
                 }
             }
 
