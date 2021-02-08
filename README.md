@@ -46,7 +46,10 @@ namespace HermodsNovoConsoleApp
 
                     foreach(var ebook in ebookList)
                     {
-                        Console.WriteLine($"Title: {ebook.Title}\nISBN: {ebook.Isbn}\nValid: {ebook.StartDate.ToShortDateString()} to {ebook.EndDate.ToShortDateString()}\n\n");
+                        Console.WriteLine($"Title: {ebook.Title}");
+                        Console.WriteLine($"ISBN: {ebook.Isbn}");
+                        Console.WriteLine($"Valid: {ebook.StartDate.ToShortDateString()} to {ebook.EndDate.ToShortDateString()}");
+                        Console.WriteLine("");
                     }
                 }
             }
