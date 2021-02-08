@@ -42,7 +42,7 @@ namespace HermodsNovoConsoleApp
                     // We're logged in!
                     var ebookList = await client.GetEbooksAsync();
 
-                    Console.WriteLine($"Active ebooks for {username}:\n\n");
+                    Console.WriteLine($"Received {ebookList.Length} active ebooks for {username}:\n\n");
 
                     foreach(var ebook in ebookList)
                     {
@@ -63,7 +63,7 @@ namespace HermodsNovoConsoleApp
 
 The output should be something similar to this:
 
-    Active ebooks for firstname.lastname@domain.com:
+    Received 2 active ebooks for firstname.lastname@domain.com:
 
     Title: Biologi 1 Onlinebok (12 mån)
     ISBN: 9789147107025
