@@ -40,20 +40,13 @@ namespace HermodsNovoConsoleApp
                 else
                 {
                     // We're logged in!
-                    try
-                    {
-                        var ebookList = await client.GetEbooksAsync();
+                    var ebookList = await client.GetEbooksAsync();
 
-                        Console.WriteLine($"Active ebooks for {username}:\n\n");
+                    Console.WriteLine($"Active ebooks for {username}:\n\n");
 
-                        foreach(var ebook in ebookList)
-                        {
-                            Console.WriteLine($"Title: {ebook.Title}\nISBN: {ebook.Isbn}\nValid: {ebook.StartDate.ToShortDateString()} to {ebook.EndDate.ToShortDateString()}\n\n");
-                        }
-                    }
-                    catch(Exception e)
+                    foreach(var ebook in ebookList)
                     {
-                        Console.WriteLine("An error occured while the books were being retrieved: " + e.Message);
+                        Console.WriteLine($"Title: {ebook.Title}\nISBN: {ebook.Isbn}\nValid: {ebook.StartDate.ToShortDateString()} to {ebook.EndDate.ToShortDateString()}\n\n");
                     }
                 }
             }
