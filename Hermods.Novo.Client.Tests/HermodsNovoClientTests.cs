@@ -10,20 +10,35 @@ namespace Hermods.Novo.Client.Tests
     [TestClass]
     public class HermodsNovoClientTests
     {
+        /// <summary>
+        /// You can set it in PowerShell using [Environment]::SetEnvironmentVariable("HERMODS_NOVO_USERNAME", "firstname.lastname@domain.com", 'User').
+        /// Visual Studio probably needs to be restarted after doing it.
+        /// </summary>
         private static readonly string USERNAME = Environment.GetEnvironmentVariable("HERMODS_NOVO_USERNAME");
+        /// <summary>
+        /// You can set it in PowerShell using [Environment]::SetEnvironmentVariable("HERMODS_NOVO_PASSWORD", "SuperSecret123", 'User')
+        /// Visual Studio probably needs to be restarted after doing it.
+        /// </summary>
         private static readonly string PASSWORD = Environment.GetEnvironmentVariable("HERMODS_NOVO_PASSWORD");
 
         private static HermodsNovoClient _client = new HermodsNovoClient();
-        private static Lazy<Task<bool>> _tryAuthenticateTask = new Lazy<Task<bool>>(() => _client.TryAuthenticateAsync(USERNAME, PASSWORD));
-        private static Lazy<Task<HermodsNovoEbook[]>> _getEbooksTask = new Lazy<Task<HermodsNovoEbook[]>>(() => _client.GetEbooksAsync());
-        private static Lazy<Task<HermodsNovoPersonalInformation>> _getPersonalInformationTask = new Lazy<Task<HermodsNovoPersonalInformation>>(() => _client.GetPersonalInformationAsync());
-        private static Lazy<Task<LiberOnlinebokClient>> _getLiberOnlinebokClientTask = new Lazy<Task<LiberOnlinebokClient>>(() => _client.GetLiberOnlinebokClientAsync(_getEbooksTask.Value.Result[0]));
-        private static Lazy<Task<LiberOnlinebokDocument>> _getLiberOnlinebokDocumentTask = new Lazy<Task<LiberOnlinebokDocument>>(() => _getLiberOnlinebokClientTask.Value.Result.GetDocumentAsync());
+        private static Task<bool> _tryAuthenticateTask;
+        private static Task<HermodsNovoEbook[]> _getEbooksTask;
+        private static Task<HermodsNovoPersonalInformation> _getPersonalInformationTask;
+        private static Task<LiberOnlinebokClient> _getLiberOnlinebokClientTask;
+        private static Task<LiberOnlinebokDocument> _getLiberOnlinebokDocumentTask;
+
+        [TestMethod]
+        public void ConstructAndDispose()
+        {
+            HermodsNovoClient client = new HermodsNovoClient();
+            client.Dispose();
+        }
 
         [TestMethod]
         public async Task TryAuthenticateAsync()
         {
-            Assert.IsTrue(await _tryAuthenticateTask.Value, "Authentication failed.");
+            Assert.IsTrue(await (_tryAuthenticateTask ??= _client.TryAuthenticateAsync(USERNAME, PASSWORD)), "Authentication failed.");
         }
 
         [TestMethod]
@@ -31,7 +46,7 @@ namespace Hermods.Novo.Client.Tests
         {
             await TryAuthenticateAsync();
 
-            var ebooks = await _getEbooksTask.Value;
+            var ebooks = await (_getEbooksTask ??= _client.GetEbooksAsync());
 
             Assert.IsTrue(ebooks.Length > 0, "No e-books retrieved.");
         }
@@ -41,7 +56,7 @@ namespace Hermods.Novo.Client.Tests
         {
             await TryAuthenticateAsync();
 
-            var personalInformation = await _getPersonalInformationTask.Value;
+            var personalInformation = await (_getPersonalInformationTask ??= _client.GetPersonalInformationAsync());
 
             Assert.IsNotNull(personalInformation);
             Assert.AreEqual("Mikael Dúi", personalInformation.PublicFirstName, "The first name is invalid.");
@@ -52,7 +67,7 @@ namespace Hermods.Novo.Client.Tests
         {
             await GetPersonalInformationAsync();
 
-            var personalInformation = await _getPersonalInformationTask.Value;
+            var personalInformation = await _getPersonalInformationTask;
 
             // Setting it to something random and valid
             personalInformation.WorkPhone = "08" + (new Random()).Next(1000000, 9999999);
@@ -69,7 +84,7 @@ namespace Hermods.Novo.Client.Tests
         {
             await GetEbooksAsync();
 
-            LiberOnlinebokClient liberClient = await _getLiberOnlinebokClientTask.Value;
+            LiberOnlinebokClient liberClient = await (_getLiberOnlinebokClientTask ??= _client.GetLiberOnlinebokClientAsync(_getEbooksTask.Result[0]));
 
             Assert.IsNotNull(liberClient, "The Liber Onlinebok Client was null.");            
         }
@@ -79,7 +94,7 @@ namespace Hermods.Novo.Client.Tests
         {
             await GetLiberOnlinebokClientAsync();
 
-            var document = await _getLiberOnlinebokDocumentTask.Value;
+            var document = await (_getLiberOnlinebokDocumentTask ??= _getLiberOnlinebokClientTask.Result.GetDocumentAsync());
 
             Assert.IsNotNull(document, "Document is null");
 
@@ -91,7 +106,7 @@ namespace Hermods.Novo.Client.Tests
         {
             await GetLiberOnlinebokClientAsync();
 
-            var assetLocation = await _getLiberOnlinebokClientTask.Value.Result.GetAssetsLocationAsync();
+            var assetLocation = await _getLiberOnlinebokClientTask.Result.GetAssetsLocationAsync();
 
             Assert.IsNotNull(assetLocation, "Asserts location is null");
         }
