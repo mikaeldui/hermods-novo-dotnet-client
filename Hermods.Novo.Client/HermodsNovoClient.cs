@@ -2,6 +2,7 @@
 using Liber.Onlinebok;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -20,11 +21,11 @@ namespace Hermods.Novo
         public HermodsNovoClient()
         {
             _cookieContainer = new CookieContainer();
-            _httpClientHandler = new HttpClientHandler 
-            { 
+            _httpClientHandler = new HttpClientHandler
+            {
                 AllowAutoRedirect = true,
-                CookieContainer = _cookieContainer, 
-                UseCookies = true 
+                CookieContainer = _cookieContainer,
+                UseCookies = true
             };
             _httpClient = new HttpClient(_httpClientHandler);
         }
@@ -34,9 +35,11 @@ namespace Hermods.Novo
         /// </summary>
         public async Task<bool> TryAuthenticateAsync(string username, string password)
         {
-            var message = $"username={username}&password={password}";
-            var content = new StringContent(message);
-            content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+            var content = new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "username", username },
+                { "password", password }
+            });
 
             var response = await _httpClient.PostAsync("https://novo.hermods.se/login/index.php", content);
 
@@ -46,6 +49,8 @@ namespace Hermods.Novo
             return false;
         }
 
+        #region E-books
+
         public async Task<HermodsNovoEbook[]> GetEbooksAsync()
         {
             var response = await _httpClient.GetAsync("https://novo.hermods.se/?action=ebooks");
@@ -54,33 +59,10 @@ namespace Hermods.Novo
 
             var html = await response.Content.ReadAsStringAsync();
 
-            return await Task.Run(() =>
-            {
-                HtmlDocument doc = new HtmlDocument();
-                doc.LoadHtml(html);
-
-                var activeEbooks = doc.DocumentNode.Descendants().Where(n => n.HasClass("active_ebook")).ToArray();
-
-                var result = new HermodsNovoEbook[activeEbooks.Length];
-
-                for (int i = 0; i < activeEbooks.Length; i++)
-                {
-                    var ebook = activeEbooks[i];
-                    result[i] = new HermodsNovoEbook()
-                    {
-                        Title = ebook.Descendants().First(n => n.HasClass("teaching_materials_title")).FirstChild.InnerText,
-                        Publisher = ebook.Descendants().First(n => n.HasClass("teaching_materials_publisher")).FirstChild.InnerText,
-                        Status = ebook.Descendants().First(n => n.HasClass("ebook_status")).FirstChild.InnerText.Trim(),
-                        Isbn = ebook.Attributes["data-isbn"].Value,
-                        StartDate = DateTime.Parse(ebook.Attributes["data-startdate"].Value),
-                        EndDate = DateTime.Parse(ebook.Attributes["data-enddate"].Value),
-                        Url = new Uri("https://novo.hermods.se/ham/" + ebook.Attributes["data-ebookurl"].Value)
-                    };
-                }
-
-                return result;
-            });
+            return await HermodsNovoParser.ParseEbooksAsync(html);
         }
+
+        #region LiberOnlinebokClient
 
         public async Task<LiberOnlinebokClient> GetLiberOnlinebokClientAsync(HermodsNovoEbook ebook)
         {
@@ -102,6 +84,65 @@ namespace Hermods.Novo
             return LiberOnlinebokClient.From(response.RequestMessage.RequestUri, _cookieContainer);
         }
 
+        #endregion LiberOnlinebokClient
+
+        #endregion
+
+        #region Personal Information
+
+        public async Task<HermodsNovoPersonalInformation> GetPersonalInformationAsync()
+        {
+            var response = await _httpClient.GetAsync("https://novo.hermods.se/?action=personalinfo");
+
+            _ensureSuccess(response);
+
+            var html = await response.Content.ReadAsStringAsync();
+
+            return await HermodsNovoParser.ParsePersonalInformationAsync(html);
+        }
+
+        /// <summary>
+        /// Throws an exception if the update fails. If it succeeds then the new information will be return.
+        /// </summary>
+        public async Task<HermodsNovoPersonalInformation> UpdatePersonalInformationAsync(HermodsNovoPersonalInformation personalInformation)
+        {
+            const string url = "https://novo.hermods.se/ham/submit.php?action=user_personal";
+
+            var content = new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "address", personalInformation.Address },
+                { "address2", personalInformation.Address2 },
+                { "postcode", personalInformation.PostalCode },
+                { "city", personalInformation.City },
+                { "country", personalInformation.Country },
+                { "email", personalInformation.Email },
+                { "cellphone", personalInformation.CellPhone },
+                { "homephone", personalInformation.HomePhone },
+                { "workphone", personalInformation.WorkPhone },
+                { "user_id", personalInformation.UserId },
+                { "firstname", personalInformation.FirstName },
+                { "lastname", personalInformation.LastName },
+                { "www_action", personalInformation.WwwAction },
+                { "original_protected_identity", personalInformation.OriginalProtectedIdentity }
+            });
+
+            var response = await _httpClient.PostAsync(url, content);
+
+            _ensureSuccess(response);
+
+            if (response.RequestMessage.RequestUri.ToString() == "https://novo.hermods.se/ham/index.php?action=personal_info&open_section=personal&feedback[]=success_save")
+            {
+                var html = await response.Content.ReadAsStringAsync();
+                return await HermodsNovoParser.ParsePersonalInformationAsync(html);
+            }
+
+            throw new HermodsNovoInvalidPersonalInformationException("The personal information submitted was invalid.", personalInformation);
+        }
+
+        #endregion
+
+        #region Helpers
+
         private bool _ensureSuccess(HttpResponseMessage response)
         {
             response.EnsureSuccessStatusCode();
@@ -113,5 +154,7 @@ namespace Hermods.Novo
         }
 
         public void Dispose() => _httpClient.Dispose();
+
+        #endregion
     }
 }

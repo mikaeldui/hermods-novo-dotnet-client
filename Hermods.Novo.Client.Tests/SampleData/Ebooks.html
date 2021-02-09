@@ -1,0 +1,584 @@
+﻿
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <!-- This sample data file was collected 2021-02-08. -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22959216-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-22959216-7');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+
+    <link rel="icon" type="image/png" href="https://novo.hermods.se/theme/frigg/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://novo.hermods.se/theme/frigg/images/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="shortcut icon" href="https://novo.hermods.se/theme/frigg/images/favicon/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Novo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+    <link rel="stylesheet" href="https://novo.hermods.se/theme/frigg/styles/styles.css?ver=6.705">
+    <link rel="stylesheet" href="https://novo.hermods.se/theme/frigg/styles/hermods.css?ver=6.705">
+    <link rel="stylesheet" href="https://novo.hermods.se/theme/frigg/styles/print.css?ver=6.705" media="print">
+    <script src="https://novo.hermods.se/theme/frigg/scripts/jquery-3.5.1.min.js"></script>
+    <!-- bara för elever -->
+    <script src="https://novo.hermods.se/theme/frigg/scripts/frigg_insipio.speakit.js"></script>
+    <script src="https://novo.hermods.se/theme/frigg/scripts/jquery.jplayer.min.js"></script>
+    <!-- /bara för elever -->
+    <link rel="stylesheet" href="https://novo.hermods.se/theme/frigg/scripts/dialog-polyfill/dialog-polyfill.css?ver=6.705">
+    <script src="https://novo.hermods.se/theme/frigg/scripts/dialog-polyfill/dialog-polyfill.js?ver=6.705"></script>
+    <script src="https://novo.hermods.se/theme/frigg/scripts/moment/moment-with-locales.min.js"></script>
+    <script id="novo-js-script" src="https://novo.hermods.se/ham/jslib/novo/novo.js?v=20210203"></script>
+    <style>
+
+                .frigg_bgcolor_01_1 {
+                    background: rgba(154,190,96,1);
+                }
+
+                .frigg_bgcolor_02_1 {
+                    background: rgba(61,195,139,1);
+                }
+
+                .frigg_bgcolor_03_1 {
+                    background: rgba(230,115,118,1);
+                }
+
+                .frigg_bgcolor_04_1 {
+                    background: rgba(2,14,113,1);
+                }
+
+                .frigg_bgcolor_05_1 {
+                    background: rgba(12,148,173,1);
+                }
+
+                .frigg_bgcolor_06_1 {
+                    background: rgba(147,88,58,1);
+                }
+
+                .frigg_bgcolor_07_1 {
+                    background: rgba(184,38,106,1);
+                }
+
+                .frigg_bgcolor_08_1 {
+                    background: rgba(91,60,150,1);
+                }
+
+                .frigg_bgcolor_09_1 {
+                    background: rgba(232,212,16,1);
+                }
+
+                .frigg_bgcolor_10_1 {
+                    background: rgba(238,135,37,1);
+                }
+
+                .frigg_bgcolor_11_1 {
+                    background: rgba(18,157,18,1);
+                }
+
+                .frigg_bgcolor_12_1 {
+                    background: rgba(154,178,62,1);
+                }
+
+                .frigg_bgcolor_13_1 {
+                    background: rgba(98,171,221,1);
+                }
+
+                .frigg_bgcolor_14_1 {
+                    background: rgba(191,56,117,1);
+                }
+
+                .frigg_bgcolor_15_1 {
+                    background: rgba(114,53,114,1);
+                }
+
+                .frigg_bgcolor_16_1 {
+                    background: rgba(96,127,197,1);
+                }
+
+                .frigg_bgcolor_17_1 {
+                    background: rgba(218,41,18,1);
+                }
+
+                .frigg_bgcolor_18_1 {
+                    background: rgba(83,142,53,1);
+                }
+
+                .frigg_bgcolor_19_1 {
+                    background: rgba(232,133,182,1);
+                }
+
+                .frigg_bgcolor_20_1 {
+                    background: rgba(96,17,17,1);
+                }
+
+                .frigg_bgcolor_21_1 {
+                    background: rgba(93,124,152,1);
+                }
+
+                .frigg_bgcolor_22_1 {
+                    background: rgba(19,96,38,1);
+                }
+
+                .frigg_bgcolor_23_1 {
+                    background: rgba(191,55,55,1);
+                }
+
+                .frigg_bgcolor_24_1 {
+                    background: rgba(183,183,183,1);
+                }
+
+
+
+                .frigg_bgcolor_01_2 {
+                    background: rgba(154,190,96,1);
+                }
+
+                .frigg_bgcolor_02_2 {
+                    background: rgba(61,195,139,1);
+                }
+
+                .frigg_bgcolor_03_2 {
+                    background: rgba(230,115,118,1);
+                }
+
+                .frigg_bgcolor_04_2 {
+                    background: rgba(2,14,113,1);
+                }
+
+                .frigg_bgcolor_05_2 {
+                    background: rgba(12,148,173,1);
+                }
+
+                .frigg_bgcolor_06_2 {
+                    background: rgba(147,88,58,1);
+                }
+
+                .frigg_bgcolor_07_2 {
+                    background: rgba(184,38,106,1);
+                }
+
+                .frigg_bgcolor_08_2 {
+                    background: rgba(91,60,150,1);
+                }
+
+                .frigg_bgcolor_09_2 {
+                    background: rgba(232,212,16,1);
+                }
+
+                .frigg_bgcolor_10_2 {
+                    background: rgba(238,135,37,1);
+                }
+
+                .frigg_bgcolor_11_2 {
+                    background: rgba(18,157,18,1);
+                }
+
+                .frigg_bgcolor_12_2 {
+                    background: rgba(154,178,62,1);
+                }
+
+                .frigg_bgcolor_13_2 {
+                    background: rgba(98,171,221,1);
+                }
+
+                .frigg_bgcolor_14_2 {
+                    background: rgba(191,56,117,1);
+                }
+
+                .frigg_bgcolor_15_2 {
+                    background: rgba(114,53,114,1);
+                }
+
+                .frigg_bgcolor_16_2 {
+                    background: rgba(96,127,197,1);
+                }
+
+                .frigg_bgcolor_17_2 {
+                    background: rgba(218,41,18,1);
+                }
+
+                .frigg_bgcolor_18_2 {
+                    background: rgba(83,142,53,1);
+                }
+
+                .frigg_bgcolor_19_2 {
+                    background: rgba(232,133,182,1);
+                }
+
+                .frigg_bgcolor_20_2 {
+                    background: rgba(96,17,17,1);
+                }
+
+                .frigg_bgcolor_21_2 {
+                    background: rgba(93,124,152,1);
+                }
+
+                .frigg_bgcolor_22_2 {
+                    background: rgba(19,96,38,1);
+                }
+
+                .frigg_bgcolor_23_2 {
+                    background: rgba(191,55,55,1);
+                }
+
+                .frigg_bgcolor_24_2 {
+                    background: rgba(183,183,183,1);
+                }
+
+
+                /* SUBCOLORS */
+                .frigg_bg_subcolor_01 {
+                    background: rgba(154,190,96,1);
+                }
+
+                .frigg_bg_subcolor_02 {
+                    background: rgba(61,195,139,1);
+                }
+
+                .frigg_bg_subcolor_03 {
+                    background: rgba(230,115,118,1);
+                }
+
+                .frigg_bg_subcolor_04 {
+                    background: rgba(2,14,113,1);
+                }
+
+                .frigg_bg_subcolor_05 {
+                    background: rgba(12,148,173,1);
+                }
+
+                .frigg_bg_subcolor_06 {
+                    background: rgba(147,88,58,1);
+                }
+
+                .frigg_bg_subcolor_07 {
+                    background: rgba(184,38,106,1);
+                }
+
+                .frigg_bg_subcolor_08 {
+                    background: rgba(91,60,150,1);
+                }
+
+                .frigg_bg_subcolor_09 {
+                    background: rgba(232,212,16,1);
+                }
+
+                .frigg_bg_subcolor_10 {
+                    background: rgba(238,135,37,1);
+                }
+
+                .frigg_bg_subcolor_11 {
+                    background: rgba(18,157,18,1);
+                }
+
+                .frigg_bg_subcolor_12 {
+                    background: rgba(154,178,62,1);
+                }
+
+                .frigg_bg_subcolor_13 {
+                    background: rgba(98,171,221,1);
+                }
+
+                .frigg_bg_subcolor_14 {
+                    background: rgba(191,56,117,1);
+                }
+
+                .frigg_bg_subcolor_15 {
+                    background: rgba(114,53,114,1);
+                }
+
+                .frigg_bg_subcolor_16 {
+                    background: rgba(96,127,197,1);
+                }
+
+                .frigg_bg_subcolor_17 {
+                    background: rgba(218,41,18,1);
+                }
+
+                .frigg_bg_subcolor_18 {
+                    background: rgba(83,142,53,1);
+                }
+
+                .frigg_bg_subcolor_19 {
+                    background: rgba(232,133,182,1);
+                }
+
+                .frigg_bg_subcolor_20 {
+                    background: rgba(96,17,17,1);
+                }
+
+                .frigg_bg_subcolor_21 {
+                    background: rgba(93,124,152,1);
+                }
+
+                .frigg_bg_subcolor_22 {
+                    background: rgba(19,96,38,1);
+                }
+
+                .frigg_bg_subcolor_23 {
+                    background: rgba(191,55,55,1);
+                }
+
+                .frigg_bg_subcolor_24 {
+                    background: rgba(183,183,183,1);
+                }
+
+                /* DEV  Gör med loop
+           [class^="tocolor-"] — starts with "tocolor-".
+        [class*=" tocolor-"] — contains the substring "tocolor-" occurring directly after a space character.
+           */
+                div[class^="frigg_bgcolor_"] {
+                    color: red;
+                    background: purple !important;
+                }
+
+                /*
+        div[class*='frigg_bgcolor_'] i.material-icons{
+            color:red;
+        }*/
+
+                div[class*='frigg_bgcolor_'] #demo-menu-lower-right-course {
+                    color: red;
+                }
+
+                    div[class*='frigg_bgcolor_'] #demo-menu-lower-right-course .material-icons {
+                        color: white;
+                    }
+                /* default om ingen session satt - vid tex inloggning som student*/
+                .frigg_bg_sub {
+                    background: rgba(154,190,96,0.7);
+                }
+
+                .frigg_deafult_bg {
+                    background: rgba(154,190,96,0.7);
+                }
+    </style>
+    <!--Initialize NovoService -->
+    <script>
+        var ns = NovoService("3ff336642303747c0f5ab3c544626911");
+        var nsOptions = { forceRefresh: false };
+    </script>
+</head>
+<body class="mdl-frigg mdl-pagelayout-frontpage">
+    <dialog class="mdl-dialog frigg_save_dialog">
+        <!-- dialogen ska ligga som ett barn till body denna bara till lärare-->
+        <h5 class="mdl-dialog__title">Osparade ändringar</h5>
+        <div class="mdl-dialog__content">
+            <p>Vill du lämna sidan utan att spara dina ändringar?</p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button close mdl-button--colored">Nej</button>
+            <button type="button" class="mdl-button frigg_dialog_go_on ">Ja</button>
+
+        </div>
+    </dialog>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="frigg-header mdl-layout__header mdl-layout__header frigg_main_menu">
+            <div class="mdl-layout__header-row nma_module_mobile_menu_hide">
+                <span class="frigg-title mdl-layout-title">
+                    <a href="https://novo.hermods.se"><img class="frigg-logo-image" src="https://novo.hermods.se/theme/frigg/images/hermods-logo-complete.svg"></a>
+                </span>
+                <div class="frigg-header-spacer mdl-layout-spacer"></div>
+                <div class="frigg-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+                    <a href="https://novo.hermods.se/?action=message_inbox"><div id="menu-chat-button" class="material-icons">chat_bubble</div></a>
+                </div>
+                <div class="frigg-navigation-container">
+                    <nav class="frigg-navigation mdl-navigation">
+                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/theme/frigg/layout/views/student/">Aktuella kurser</a>
+                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/theme/frigg/layout/views/student/#studieplan.html">Studieplan</a>
+                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="https://novo.hermods.se/?action=support_my_hermods">Mitt Hermods</a>
+                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="https://novo.hermods.se/?action=allbooks">Läromedel</a>
+                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="https://novo.hermods.se/?action=support_faq">Vanliga frågor</a>
+                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="https://novo.hermods.se/?action=personalinfo">Mikael Dúi&nbsp;Bolinder</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="mdl-layout__header-row frigg_sub_menu ">
+                <nav class="mdl-navigation">
+                    <span class="mdl-navigation__link"><a class="nma_support_link frigg_no_left_padding" href="https://novo.hermods.se/?action=allbooks">Kurs- och litteraturlista</a><a class="nma_support_link" href="https://novo.hermods.se/?action=ebooks">Mina läromedel</a></span>
+                </nav>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                </nav>
+            </div>
+        </header>
+        <div class="frigg-drawer mdl-layout__drawer">
+            <nav class="mdl-navigation frigg-side-navigation">
+                <a class="mdl-navigation__link" href="/theme/frigg/layout/views/student/">Aktuella kurser</a>
+                <a class="mdl-navigation__link" href="/theme/frigg/layout/views/student/#studieplan.html">Studieplan</a>
+                <a class="mdl-navigation__link" href="https://novo.hermods.se/?action=support_my_hermods">Mitt Hermods</a>
+                <a class="mdl-navigation__link" href="https://novo.hermods.se/?action=allbooks">Läromedel</a>
+                <a class="mdl-navigation__link" href="https://novo.hermods.se/?action=support_faq">Vanliga frågor</a>
+                <a class="mdl-navigation__link" href="https://novo.hermods.se/?action=personalinfo">Mikael Dúi Bolinder</a>
+                <a id="menu-news-button" class="mdl-navigation__link" href="https://novo.hermods.se/?action=news">Nyheter (0)</a>
+                <a id="menu-blog-button" class="mdl-navigation__link" href="https://novo.hermods.se/local/hamblog/index.php?action=all_blogs">Bloggar (0)</a>
+                <a class="mdl-navigation__link" href="https://novo.hermods.se/?action=documents">Dokument</a>
+                <a class="mdl-navigation__link" href="https://novo.hermods.se/login/logout.php?sesskey=ZighQQI3Jc">Logga ut</a>
+                <div class="mdl-layout-spacer"></div>
+            </nav>
+        </div>
+        <div class="frigg-content mdl-layout__content">
+            <div id="speakit_player"></div>
+            <style>
+                .teaching_materials_title {
+                    color: #14243f;
+                    font-size: 14px;
+                    font-family: "Merriweather";
+                }
+
+                .nma_row::before {
+                    box-shadow: none;
+                    border: solid 1px #cecece;
+                }
+
+                .donotchangebookspassword {
+                    padding: 8px 8px 0px;
+                    border-left: 4px red solid;
+                    margin-top: 16px;
+                }
+
+                    .donotchangebookspassword p {
+                        margin-bottom: 8px;
+                    }
+            </style>
+
+            <section class="section--center mdl-grid">
+
+                <div class="frigg_module">
+                    <!--<div class="frigg_module_title Bold">Mina läromedel</div>-->
+                    <div class="frigg_module_title Bold">&nbsp;</div>
+                    <div class="fanig_ruta">
+                        <div class="vanster">Visa endast aktiva läromedel</div>
+                        <div class="hoger">
+                            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect " for="switch-1">
+                                <input type="checkbox" id="switch-1" class="mdl-switch__input frigg_toggle_current_ebooks">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="nma_row active_ebook" data-isbn="9789147107025" data-status="Aktiverad" data-startdate="2021-01-04" data-enddate="2022-01-04" data-ebookurl="linkresolver.php?isbn=9789147107025">
+                        <div class="nma_flexbox">
+                            <div class="nma_col nma_prop_noselect teaching_materials_title"><span class="ellips">Biologi 1 Onlinebok (12 mån)</span></div>
+                            <div class="nma_col nma_spec_title teaching_materials_publisher"><span class="ellips">Liber</span></div>
+                            <div class="nma_col ebook_status"><span class="ellips nma_ebook_date">Licens till 2022-01-04 </span></div>
+                        </div>
+                    </div>
+                    <div class="nma_row active_ebook" data-isbn="9789147910281" data-status="Aktiverad" data-startdate="2021-01-04" data-enddate="2022-01-04" data-ebookurl="linkresolver.php?isbn=9789147910281">
+                        <div class="nma_flexbox">
+                            <div class="nma_col nma_prop_noselect teaching_materials_title"><span class="ellips">Geografi 1 och 2 Onlinebok (12 mån)</span></div>
+                            <div class="nma_col nma_spec_title teaching_materials_publisher"><span class="ellips">Liber</span></div>
+                            <div class="nma_col ebook_status"><span class="ellips nma_ebook_date">Licens till 2022-01-04 </span></div>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-left:24px;"><span class="no_teachingmaterialatall">Ojdå, du har inga aktiva läromedel.</span><br />e-böcker och andra läromedel finns att köpa i <a href="http://www.hermods.se/webbutik/e-bocker/" target="_blank">Hermods webbutik</a></p>
+
+                <div class="donotchangebookspassword"><p>Byt <strong>inte</strong> lösenord på till ditt läromedel när du är inne i din e-bok. <br>Om du byter lösenord på förlagets sida kommer du inte längre att kunna använda ditt e-läromedel i Novo.</p></
+            </section>
+            <script>
+                $(document).ready(function () {
+                    $(".active_ebook").click(function () {
+
+                        var $tmpurl = FRIGG_CFG.wwwroot + '/ham/' + $(this).attr('data-ebookurl');
+                        window.open($tmpurl, '_blank'); // nytt fönster
+                        //  window.location.href = $tmpurl; // samma fönster
+                    });
+
+
+                    $('.frigg_toggle_current_ebooks').click(function () {
+
+                        $(".hmnot_active").toggle();
+                        if ($(".active_ebook").length === 0) {
+                            $(".no_teachingmaterialatall").toggle();
+                        }
+                    });
+
+                    //räkna alla aktiva - om 0 skapa en div med prat
+                    //Ojdå - du har inga aktiva läromedel
+                    if ($(".active_ebook").length === 0) {
+
+                    }
+                });
+            </script>
+        </div><!-- ? -->
+        <div class="frigg_acknowledgment away"><div class="frigg_notificationtext"></div><div class="frigg_acknowledgment_dismiss"><i class="material-icons">close</i></div> </div>
+    </div> <!-- /frigg-content mdl-layout__content -->
+    </div><!--/mdl-layout__container -->
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script>
+        var FRIGG_CFG = { "wwwroot": "https://novo.hermods.se", "sesskey": "ZighQQI3Jc" };
+        $(document).ready(function () {
+            $('body').addClass("page-ebooks");
+        });
+    </script>
+    <script src="https://novo.hermods.se/theme/frigg/scripts/frigg.js?ver=6.705"></script>
+    <script src="https://novo.hermods.se/theme/frigg/scripts/frigg_responsive_video.js?ver=6.705"></script>
+    <script src="https://novo.hermods.se/theme/frigg/scripts/frigg_upload.js?ver=6.705"></script>
+    <script src="https://novo.hermods.se/theme/frigg/scripts/telling_title.min.js?ver=6.705"></script>
+    <script>
+        setpagetitle('ebooks', 'Kurser');
+    </script>
+    <style>
+        @media (max-width: 839px) {
+            .frigg_sub_menu { /* endast om ingen extra submeny || endast om "min sida""*/
+                list-style: none;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                white-space: nowrap;
+            }
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            // Hämta antal nya meddelanden, antal nyheter samt bloggnyheter
+            ns.getNotifications(nsOptions, function (data) {
+
+                var newsButton = $("#menu-news-button");
+                var blogButton = $("#menu-blog-button");
+                var chatButton = $("#menu-chat-button");
+                var messagesButton = $("#menu-messages-button");
+
+                var news = data.news;
+                var blogs = data.blogs;
+                var messages = data.messages;
+
+                if (news > 0) {
+                    newsButton.text("Nyheter (" + news + ")");
+                }
+
+                if (blogs > 0) {
+                    blogButton.text("Bloggar (" + blogs + ")");
+                }
+
+                if (messages > 0) {
+                    messagesButton.text("Meddelanden (" + (messages > 99 ? "99+" : messages) + ")");
+
+                    chatButton.addClass("mdl-badge mdl-badge--overlap frigg_notification_counter");
+                    chatButton.attr("data-totalnotifications", messages);
+                    chatButton.attr("data-badge", messages > 99 ? "99+" : messages);
+                }
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    </script>
+    <script src="https://novo.hermods.se/theme/frigg/scripts/session-timeout.js"></script>
+    <script src="https://novo.hermods.se/theme/frigg/layout/views/student/scripts/session_timeout.js?id=1.1"></script>
+    <script>
+        /*--------------
+        Förhandsgranskning
+        ---------------*/
+        // navigering inifrån innehåll
+        $('.frigg_main_menu a[href$="#kurs=0"]:first').attr('href', 'javascript:history.back();');
+    </script>
+</body>
+</html>
