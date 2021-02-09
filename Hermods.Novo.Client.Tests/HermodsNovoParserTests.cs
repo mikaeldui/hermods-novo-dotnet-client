@@ -30,7 +30,7 @@ namespace Hermods.Novo.Client.Tests
             var result = await HermodsNovoParser.ParsePersonalInformationAsync(html);
 
             Assert.IsNotNull(result, "Result is null.");
-            Assert.AreEqual("Mikael Dúi", result.PublicFirstName, "The first name is invalid.");
+            Assert.AreEqual("Bolinder", result.PublicLastName, "The first name is invalid.");
             Assert.AreEqual("321654", result.UserId, "The hidden user ID is invalid.");
         }
     }

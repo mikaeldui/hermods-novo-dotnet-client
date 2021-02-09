@@ -59,7 +59,7 @@ namespace Hermods.Novo.Client.Tests
             var personalInformation = await (_getPersonalInformationTask ??= _client.GetPersonalInformationAsync());
 
             Assert.IsNotNull(personalInformation);
-            Assert.AreEqual("Mikael Dúi", personalInformation.PublicFirstName, "The first name is invalid.");
+            Assert.AreEqual("Bolinder", personalInformation.LastName, "The first name is invalid.");
         }
 
         [TestMethod, TestCategory("Personal Information")]
