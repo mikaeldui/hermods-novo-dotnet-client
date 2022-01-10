@@ -51,7 +51,7 @@ jobs:
       run: dotnet build --no-restore --configuration Release /p:Version=${{ steps.version.outputs.version }}${{ steps.semver.outputs.suffix }}
       
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --configuration Release --verbosity normal
       env: 
         HERMODS_NOVO_USERNAME: ${{ secrets.HERMODS_NOVO_USERNAME }}
         HERMODS_NOVO_PASSWORD: ${{ secrets.HERMODS_NOVO_PASSWORD }}
