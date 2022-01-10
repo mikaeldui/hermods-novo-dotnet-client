@@ -2,17 +2,17 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [ main ]    
+    branches: [ huvudgrenen ]    
     paths:
       - 'Hermods.Novo.Client/**'
       - 'Hermods.Novo.Client.Tests/**'
-      - '.github/workflows/*'
+      - '.github/**'
   pull_request:
-    branches: [ main ]
+    branches: [ huvudgrenen ]
     paths:     
       - 'Hermods.Novo.Client/**'
       - 'Hermods.Novo.Client.Tests/**'
-      - '.github/workflows/*'
+      - '.github/**'
 
 jobs:
   build:
