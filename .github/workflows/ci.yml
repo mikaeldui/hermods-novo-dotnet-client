@@ -6,13 +6,13 @@ on:
     paths:
       - 'Hermods.Novo.Client/**'
       - 'Hermods.Novo.Client.Tests/**'
-      - '.github/**'
+      - '.github/workflows/*'
   pull_request:
     branches: [ main ]
     paths:     
       - 'Hermods.Novo.Client/**'
       - 'Hermods.Novo.Client.Tests/**'
-      - '.github/**'
+      - '.github/workflows/*'
 
 jobs:
   build:
