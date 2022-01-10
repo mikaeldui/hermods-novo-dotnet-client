@@ -43,6 +43,8 @@ jobs:
     - name: SemVer suffix
       id: semver
       uses: mikaeldui/actions/nupkg/semver-suffix@main
+      with:
+        default_branch: huvudgrenen
       
     - name: Restore dependencies
       run: dotnet restore
