@@ -4,15 +4,15 @@ on:
   push:
     branches: [ main ]    
     paths:
-      - Hermods.Novo.Client/**
-      - Hermods.Novo.Client.Tests/**
-      - .github/**
+      - 'Hermods.Novo.Client/**'
+      - 'Hermods.Novo.Client.Tests/**'
+      - '.github/**'
   pull_request:
     branches: [ main ]
     paths:     
-      - Hermods.Novo.Client/**
-      - Hermods.Novo.Client.Tests/**
-      - .github/**
+      - 'Hermods.Novo.Client/**'
+      - 'Hermods.Novo.Client.Tests/**'
+      - '.github/**'
 
 jobs:
   build:
